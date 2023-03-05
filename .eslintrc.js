@@ -18,9 +18,9 @@ module.exports = {
   },
   plugins: [
     '@typescript-eslint',
-    "import",
-    "simple-import-sort",
-    "unused-imports"
+    'import',
+    'simple-import-sort',
+    'unused-imports'
   ],
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
@@ -38,5 +38,6 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'unused-imports/no-unused-imports': 'error',
+    'space-before-function-paren': ['error', {'anonymous': 'always', 'named': 'never', 'asyncArrow': 'always'}]
   }
 }

@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "author": "Damian Pasek <damianpasek@gmail.com>",
   "license": "MIT",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "build": "tsc --outDir dist",
     "dev": "nodemon src/index.ts",

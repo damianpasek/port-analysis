@@ -5,7 +5,9 @@ import percentile from 'percentile'
 import { PERCENTILE_DURATION_UNIT, PERCENTILES } from '../constants/percentiles'
 import { PortCall } from '../types/api'
 
-const getDurations = (portCalls: PortCall[]) => {
+export type Percentiles = Record<string, number>
+
+const getDurations = (portCalls: PortCall[]): number[] => {
   return portCalls.map((portCall) => {
     const arrival = new Date(portCall.arrival)
     const departure = new Date(portCall.departure)
@@ -16,7 +18,7 @@ const getDurations = (portCalls: PortCall[]) => {
 
 export const getPortCallsDurationPercentiles = (
   portCalls: PortCall[],
-): Record<string, number> => {
+): Percentiles => {
   const durations = getDurations(portCalls)
 
   return chain(percentile(PERCENTILES, durations) as number[])

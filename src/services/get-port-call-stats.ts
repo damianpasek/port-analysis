@@ -1,18 +1,21 @@
 import { chain } from 'lodash'
 
 import { PortCall } from '../types/api'
-import { getPortCallsDurationPercentiles } from '../utils/get-port-call-duration-percentiles'
+import {
+  getPortCallsDurationPercentiles,
+  Percentiles,
+} from '../utils/get-port-call-duration-percentiles'
 
 export type PortCallStats = {
   id: string
   name: string
   numberOfPortCalls: number
-  percentiles: Record<string, number>
+  percentiles: Percentiles
 }
 
 export const getPortCallStats = (portCalls: PortCall[]): PortCallStats[] => {
   return chain(portCalls)
-    .groupBy((x) => x.port.id)
+    .groupBy((portCall) => portCall.port.id)
     .toPairs()
     .map(([id, portCalls]) => ({
       id,

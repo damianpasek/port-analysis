@@ -1,6 +1,8 @@
-import { Vessel2Schedule } from '../__mocks__/schedules'
-import * as percentileUtils from '../utils/get-port-call-duration-percentiles'
-import { getPortCallStats } from './get-port-call-stats'
+import { sortBy } from 'lodash'
+
+import { Vessel2Schedule } from '../../__mocks__/schedules'
+import * as percentileUtils from '../../utils/get-port-call-duration-percentiles'
+import { getPortCallStats } from '../get-port-call-stats'
 
 describe('Services: getPortCallStats', () => {
   const percentiles = {}
@@ -49,6 +51,12 @@ describe('Services: getPortCallStats', () => {
     expect(
       percentileUtils.getPortCallsDurationPercentiles,
     ).toHaveBeenCalledTimes(4)
+  })
+
+  it('should return stats data ordered by number of port calls ', () => {
+    const result = getPortCallStats(Vessel2Schedule.portCalls)
+
+    expect(sortBy(result, 'numberOfPortCalls')).toEqual(result)
   })
 
   it('should return empty array when called with empty array', () => {

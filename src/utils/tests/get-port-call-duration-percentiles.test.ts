@@ -1,8 +1,8 @@
 import dayjs from 'dayjs'
 
-import { PERCENTILE_DURATION_UNIT } from '../constants/percentiles'
-import { PortCall } from './../types/api'
-import { getPortCallsDurationPercentiles } from './get-port-call-duration-percentiles'
+import { PERCENTILE_DURATION_UNIT } from '../../constants/percentiles'
+import { PortCall } from '../../types/api'
+import { getPortCallsDurationPercentiles } from '../get-port-call-duration-percentiles'
 
 describe('Utils: getPortCallsDurationPercentiles', () => {
   const portCalls = [

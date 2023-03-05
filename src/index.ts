@@ -1,3 +1,4 @@
-import { main } from './main'
+import app from './app'
+import config from './config'
 
-main()
+app.listen(config.port, () => console.log(`Listening on port ${config.port}`))

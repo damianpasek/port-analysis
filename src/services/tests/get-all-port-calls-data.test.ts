@@ -1,7 +1,7 @@
-import * as api from '../clients/port-api'
-import { MockedSchedules } from './../__mocks__/schedules'
-import { MockedVessels, VesselId } from './../__mocks__/vessels'
-import { getAllPortCallsData } from './get-all-port-calls-data'
+import { MockedSchedules } from '../../__mocks__/schedules'
+import { MockedVessels, VesselId } from '../../__mocks__/vessels'
+import * as api from '../../clients/port-api'
+import { getAllPortCallsData } from '../get-all-port-calls-data'
 
 describe('Services: getAllPortCallsData', () => {
   beforeEach(() => {
